@@ -1,0 +1,26 @@
+{
+  "name": "dgls-fruits",
+  "version": "1.0.0",
+  "description": "…",
+  "main": "index.js",
+    "devDependencies": {
+        "grunt": "1.0.1",
+        "grunt-autoprefixer": "^3.0.4",
+        "grunt-combine-media-queries": "^1.0.20",
+        "grunt-contrib-cssmin": "^1.0.1",
+        "grunt-sass": "^1.1.0"
+    },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thotzl/dgls-fruits.git"
+  },
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "https://github.com/thotzl/dgls-fruits#readme"
+}
