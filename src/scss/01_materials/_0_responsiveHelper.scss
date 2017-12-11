@@ -1,0 +1,55 @@
+%hiddenS {
+    @include mediaQuery(s) {
+        display: none !important;
+    }
+}
+
+%hiddenM {
+    @include mediaQuery(m) {
+        display: none !important;
+    }
+}
+
+%hiddenL {
+    @include mediaQuery(l) {
+        display: none !important;
+    }
+}
+
+%hiddenXL {
+    @include mediaQuery(xl) {
+        display: none !important;
+    }
+}
+
+%visibleS {
+    display: none !important;
+
+    @include mediaQuery(s) {
+        display: block !important;
+    }
+}
+
+%visibleM {
+    display: none !important;
+
+    @include mediaQuery(m) {
+        display: block !important;
+    }
+}
+
+%visibleL {
+    display: none !important;
+
+    @include mediaQuery(l) {
+        display: block !important;
+    }
+}
+
+%visibleXL {
+    display: none !important;
+
+    @include mediaQuery(xl) {
+        display: block !important;
+    }
+}

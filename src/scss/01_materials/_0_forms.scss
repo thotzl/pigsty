@@ -1,0 +1,14 @@
+%baseFormStyles {
+    @extend %baseFont;
+    width: 100%;
+    border: 1px solid $grey-light;
+    border-radius: $baseBorderRadius;
+    outline: none;
+    padding: 0 pxToRem(5px);
+    transition: border-color $duration-long $ease;
+    display: block;
+    &:active, &:focus {
+        outline: none;
+        border-color: darken($grey-light, 30%);
+    }
+}

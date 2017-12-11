@@ -1,0 +1,77 @@
+// Font Families
+// sans serif
+$baseFont-1: "Source Sans Pro";
+$baseFont-2: Helvetica;
+$baseFont-3: Arial;
+$baseFont-4: sans-serif;
+
+// monospace
+$monoFont: monospace;
+
+// serif
+$serifFont-1: "Times New Roman";
+$serifFont-2: Times;
+$serifFont-3: serif;
+
+// font families
+$baseFontFamily: $baseFont-1, $baseFont-2, $baseFont-3, $baseFont-4;
+$monoFontFamily: $monoFont;
+$serifFontFamily: $serifFont-1, $serifFont-2, $serifFont-3;
+
+// font weights
+$fontWeight-normal: 400;
+$fontWeight-bold: 600;
+
+// root font sizes
+$rootFontSize: 14px;
+$rootFontSize-s: 14px;
+$rootFontSize-m: 14px;
+$rootFontSize-l: 15px;
+$rootFontSize-xl: 16px;
+
+// font sizes
+$fontSize-0_75: .75em !default;
+$fontSize-0_875: .875em !default;
+$fontSize-1: 1rem !default;
+$fontSize-1_25: 1.25rem !default;
+$fontSize-1_5: 1.5rem !default;
+$fontSize-1_75: 1.75rem !default;
+$fontSize-2_5: 2.5rem !default;
+$fontSize-3_5: 3.5rem !default;
+
+// line heights
+$rootLineHeight: 21px;
+$rootLineHeight-s: 21px;
+$rootLineHeight-m: 21px;
+$rootLineHeight-l: 24px;
+$rootLineHeight-xl: 24px;
+
+$lineHeight-dynamic: 125%;
+
+$rootFontSizes: (
+    default: (
+        font-size: $rootFontSize,
+        line-height: $rootLineHeight
+    ),
+    s: (
+        font-size: $rootFontSize-s,
+        line-height: $rootLineHeight-s
+    ),
+    m: (
+        font-size: $rootFontSize-m,
+        line-height: $rootLineHeight-m
+    ),
+    l: (
+        font-size: $rootFontSize-l,
+        line-height: $rootLineHeight-l
+    ),
+    xl: (
+        font-size: $rootFontSize-xl,
+        line-height: $rootLineHeight-xl
+    )
+);
+
+
+// buttons
+$buttonLineHeight: 50px;
+

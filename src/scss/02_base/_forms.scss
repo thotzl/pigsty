@@ -1,0 +1,29 @@
+@include input-placeholder {
+    color: $grey-light;
+    font-weight: $fontWeight-normal;
+}
+
+textarea {
+    @extend %baseFormStyles;
+    height: auto;
+}
+
+input {
+    @extend %baseFormStyles;
+    height: $buttonLineHeight;
+    font-weight: $fontWeight-normal;
+    &[type=checkbox], &[type=radio] {
+        height: auto;
+        width: auto;
+        position: relative;
+    }
+}
+
+select {
+    @extend %baseFormStyles;
+    height: $buttonLineHeight;
+}
+
+label {
+    display: block;
+}

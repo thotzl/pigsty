@@ -1,0 +1,26 @@
+ul, ol {
+    padding-left: pxToEm(40px);
+}
+
+ul {
+    list-style: disc outside none;
+}
+
+ol {
+    list-style: decimal outside none;
+}
+
+li {
+    margin-bottom: 0.3em;
+}
+
+dl {
+}
+
+dt {
+    font-weight: $fontWeight-bold;
+}
+
+dd {
+    margin-bottom: 0.3em;
+}

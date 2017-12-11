@@ -1,0 +1,88 @@
+/// font-sizes
+%fontSize-0_75 {
+    font-size: .75em
+}
+
+%fontSize-0_875 {
+    font-size: .875em
+}
+
+%fontSize-1 {
+    font-size: 1rem;
+}
+
+%fontSize-1_25 {
+    font-size: 1.25rem;
+}
+
+%fontSize-1_5 {
+    font-size: 1.5rem;
+}
+
+%fontSize-1_75 {
+    font-size: 1.75rem;
+}
+
+%fontSize-2_5 {
+    font-size: 2.5rem;
+}
+
+%fontSize-3_5 {
+    font-size: 3.5rem;
+}
+
+%dynamicLineHeight {
+    line-height: $lineHeight-dynamic;
+}
+
+/*
+    Font and color only
+*/
+%rootFont {
+    font-family: $baseFontFamily;
+    @include mqStyles($map: $rootFontSizes, $wantedMq:(s,m,l,xl));
+
+    color: $blue-darker;
+}
+
+%inheritFont {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+}
+
+%baseFont {
+    font-weight: $fontWeight-normal;
+    @extend %fontSize-1;
+}
+
+%monoFont {
+    font-family: $monoFontFamily;
+    @extend %fontSize-0_875;
+}
+
+%serifFont {
+    font-family: $serifFontFamily;
+    @extend %fontSize-1_25;
+}
+
+/*
+    Table settings
+    todo: exclude
+*/
+%tableCells {
+    box-sizing: border-box;
+    padding: 0.3em;
+    text-align: left;
+}
+
+%alignRight {
+    text-align: right;
+}
+
+%headlineBlueBold {
+    color: $blue-darker;
+    font-weight: $fontWeight-bold;
+}

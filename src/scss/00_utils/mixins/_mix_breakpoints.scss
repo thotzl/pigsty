@@ -1,0 +1,79 @@
+/// Generates media query containers around your content. It’s used if you need a standard breakpoint defined in map
+/// @group media-queries
+/// @see {mixin} breakPoint
+/// @see {mixin} mediaQuery
+/// @param {string} $range [null] key of the media query defined in map ($mqs)
+/// @param {map} $mqs [$mediaQueries] map of defined standard media queries
+/// @content @content will be wrapped in mq
+/// @output media query container around your content
+@mixin includeMediaQuery($minWidth, $maxWidth) {
+    @if ($minWidth and $maxWidth) {
+        @media (min-width: #{$minWidth}px) and (max-width: #{$maxWidth - 1}px) {
+            @content;
+        }
+    } @else if ($minWidth) {
+        @media (min-width: #{$minWidth}px) {
+            @content;
+        }
+    } @else if ($maxWidth) {
+
+        @media (max-width: #{$maxWidth - 1}px) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+/// Generates media query containers around your content by calling @mixin includeMediaQuery. It’s used if you need a standard breakpoint defined in map.
+/// @group media-queries
+/// @see {mixin} includeMediaQuery
+/// @param {integer | string} $minWidth [null] min-width of the breakpoint. $minWidth can be a key of a map or an Int for an px-value.
+/// @param {integer | string} $maxWidth [null] max-width of the breakpoint (not necessary!). Same as $minWidth.
+@mixin breakPoint($minWidth: null, $maxWidth: null, $bps: $breakpoints) {
+
+    $min: null;
+    $max: null;
+
+    //max: $maxWidth;
+    //min: $minWidth;
+
+    @if ($minWidth) {
+        @if map_has_key($bps, $minWidth) {
+            $min: map_get($bps, $minWidth);
+        } @else {
+            $min: $minWidth;
+        }
+    }
+
+    @if ($maxWidth) {
+        @if map_has_key($bps, $minWidth) {
+            $max: map_get($bps, $maxWidth);
+        } @else {
+            $max: $maxWidth;
+        }
+    }
+
+    @include includeMediaQuery($min, $max) {
+        @content;
+    }
+}
+
+/// Generates media query containers around your content by calling @mixin includeMediaQuery. It’s used if you need a standard breakpoint defined in map
+/// @group media-queries
+/// @see {mixin} includeMediaQuery
+/// @param {string} $range [null] key of the media query defined in map ($mqs)
+/// @param {map} $mqs [$mediaQueries] map of defined standard media queries
+@mixin mediaQuery($range, $mqs: $mediaQueries) {
+
+    $mq: map_get($mqs, $range);
+
+    @if ($mq) {
+        $minWidth: map_get($mq, min-width);
+        $maxWidth: map_get($mq, max-width);
+
+        @include includeMediaQuery($minWidth, $maxWidth) {
+            @content;
+        }
+    }
+}

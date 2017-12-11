@@ -1,0 +1,3 @@
+%topOfferBackgroundImage {
+    @include background-selectors($providerColors, $selectorType: "&.is--");
+}

@@ -1,0 +1,40 @@
+@function listToMap ($list, $mappings, $output: "breakpoints") {
+    $map: ();
+    $i: 1;
+
+    @each $item in $list {
+
+        $key: nth($mappings, $i);
+
+        @if ($output == "breakpoints") {
+            $val: $item;
+            $new: ($key: $item);
+            $map: map-merge($map, $new);
+        } @else {
+            $minW: null;
+            $maxW: null;
+
+            @if ($key == "default") {
+                $list: set-nth($list, $i, null);
+                $mappings: set-nth($list, $i, null);
+            } @else {
+                @if (nth($list, $i - 1)) {
+                    $minW: nth($list, $i);
+                }
+
+                @if ($i + 1 <= length($list)) {
+                    @if (nth($list, $i + 1)) {
+                        $maxW: nth($list, $i + 1);
+                    }
+                }
+            }
+
+            $new: ($key: (min-width: $minW, max-width: $maxW));
+            $map: map-merge($map, $new);
+        }
+
+        $i: $i + 1;
+    }
+
+    @return $map;
+}

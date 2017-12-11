@@ -1,0 +1,88 @@
+/****************************************************************************************************** Layout Colors */
+// Grays
+// -------------------------
+$grey-darker: #8892a0 !default;
+$grey-dark: #969fab !default;
+$grey: #b5bfcb !default;
+$grey-light: #e8ecf1 !default;
+$grey-lighter: #f8f8f8 !default;
+$white: #fff !default;
+
+// Accent colors
+// -------------------------
+$blue: #00adff !default;
+$blue-dark: #21364e !default;
+$blue-darker: #031b36 !default;
+$blue-night: #01649a !default;
+// #031b36
+
+$green: #45b83b !default;
+$red: #ff0000 !default;
+$yellow: #fccc00 !default;
+$orange: #f89406 !default;
+$orange-light: #f9a124 !default;
+
+/**************************************************************************************************** mapping */
+
+$bodyBackground: $white !default;
+$textColor: $grey-dark !default;
+$linkColor: $blue !default;
+$linkColor-hover: darken($linkColor, 10%) !default;
+$buttonColor: $blue !default;
+/**************************************************************************************************** State Colors */
+
+$successColor: $green;
+$warningColor: $orange;
+$errorColor: $red;
+
+/****************************************************************************************************** Device Colors */
+$deviceColors: (
+    "black": #222,
+    "blue": #47b8f2,
+    "bronze": #c79570,
+    "copper": #f4a489,
+    "emeraldGreen": #036423,
+    "gold": #f0e0d0,
+    "gray": #d4d6d5,
+    "green": #96df65,
+    "lime": #c5df4d,
+    "marbleWhite": #ebebde,
+    "midnightBlue": #1e287b,
+    "mysticChampagne": #c4c5be,
+    "orange": #f75b25,
+    "pebbleBlue": #3d7ec6,
+    "pink": #e45fe2,
+    "purple": #4f3ba3,
+    "red": #d43131,
+    "sapphireBlack": #031533,
+    "silver": #dfe9f0,
+    "silverGold": #c1b4ab,
+    "spacegray": #7b7c80,
+    "titaniumGrey": #b0c2c1,
+    "topazBlue": #2dafcf,
+    "white": #f4f3f1,
+    "yellow": #ffed50
+) !default;
+
+/**************************************************************************************************** Provider Colors */
+$providerColors: (
+    "1und1": (#003d8e),
+    "base": (#799300, #5a7128, #bad5f1),
+    "blau_de": (#01b6f1, #7814b3),
+    "congstar": (#000),
+    "eplus": (#00613f),
+    "o2": (#1d2756),
+    "otelo": (#141006, #f89728),
+    "simfinity": (#06cfe7, #002d3c),
+    "smartmobil": (#e4f4a2, #ffdf00, #52ad3b, #00511e),
+    "telekom": #e20074,
+    "vodafone": (#e60000),
+    "winsim": (#8f9091, #97be0d)
+) !default;
+
+$companyColors: (
+        "pro7": (#f0001e),
+        "kabel1": (#ff3700, #730800),
+        "sixx": (#57c300)
+)!default;
+

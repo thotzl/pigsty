@@ -1,0 +1,23 @@
+%providerBackgroundColor {
+    @include color-selectors($providerColors, $rule: background-color, $selectorType: "&.is--");
+}
+
+%providerBorderColor {
+    @include color-selectors($providerColors, $rule: border-color, $selectorType: "&.is--");
+}
+
+%providerTextColor {
+    @include color-selectors($providerColors, $rule: color, $selectorType: "&.is--");
+}
+
+%deviceBackgroundColor {
+    @include color-selectors($deviceColors, $rule: background-color, $selectorType: "&.is--");
+}
+
+%deviceBorderColor {
+    @include color-selectors($deviceColors, $rule: border-color, $selectorType: "&.is--");
+}
+
+%deviceTextColor {
+    @include color-selectors($deviceColors, $rule: color, $selectorType: "&.is--");
+}

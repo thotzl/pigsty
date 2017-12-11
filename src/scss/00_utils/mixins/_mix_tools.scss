@@ -1,0 +1,33 @@
+/// Generates css from maps for debug purposes.
+/// @group tools
+/// @param {map} $map
+/// @example css
+/// called with: @include debug-map($mediaQueries);
+/// generates: @debug-map {
+///     debug {
+///         __length__: 5;
+///         __keys__: default, s, m, l, xl;
+///     }
+///     debug properties {
+///         (map) default: (min-width: null, max-width: null);
+///         (map) s: (min-width: null, max-width: 768);
+///         (map) m: (min-width: 768, max-width: 1024);
+///         (map) l: (min-width: 1024, max-width: 1440);
+///         (map) xl: (min-width: 1440, max-width: null);
+///     }
+/// }
+@mixin debug-map($map) {
+    @at-root {
+        debug-map {
+            debug {
+                __length__: length($map);
+                __keys__: map-keys($map);
+                properties {
+                    @each $key, $value in $map {
+                        #{'(' + type-of($value) + ') ' + $key}: inspect($value);
+                    }
+                }
+            }
+        }
+    }
+}

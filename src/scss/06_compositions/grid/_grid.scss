@@ -1,0 +1,108 @@
+.#{$containerSelector} {
+    @include mqStyles($containerWidths, $wantedMq: s);
+    @include mqStyles($containerWidths, $wantedMq: m);
+    @include mqStyles($containerWidths, $wantedMq: l);
+    margin-left:  auto;
+    margin-right: auto;
+    position:     relative;
+    display:      block;
+    box-sizing:   border-box;
+    min-width:    320px;
+    @extend %clearfix;
+}
+
+@include grid($columns, $mediaQueries);
+
+.#{$rowSelector}-flex {
+    @extend .#{$rowSelector};
+    display:               -webkit-box;
+    display:               -ms-flexbox;
+    display:               flex;
+    -webkit-box-orient:    horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction:    row;
+    flex-direction:        row;
+    -ms-flex-wrap:         wrap;
+    flex-wrap:             wrap;
+    flex:                  0 0 auto;
+
+    &-gtM {
+        @extend .#{$rowSelector};
+        @include breakPoint(m) {
+            display:               -webkit-box;
+            display:               -ms-flexbox;
+            display:               flex;
+            -webkit-box-orient:    horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction:    row;
+            flex-direction:        row;
+            -ms-flex-wrap:         wrap;
+            flex-wrap:             wrap;
+            flex:                  0 0 auto;
+        }
+    }
+
+    &-gtL {
+        @extend .#{$rowSelector};
+        @include breakPoint(l) {
+            display:               -webkit-box;
+            display:               -ms-flexbox;
+            display:               flex;
+            -webkit-box-orient:    horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction:    row;
+            flex-direction:        row;
+            -ms-flex-wrap:         wrap;
+            flex-wrap:             wrap;
+            flex:                  0 0 auto;
+        }
+    }
+
+    &-s {
+        @extend .#{$rowSelector};
+        @include mediaQuery(s) {
+            display:               -webkit-box;
+            display:               -ms-flexbox;
+            display:               flex;
+            -webkit-box-orient:    horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction:    row;
+            flex-direction:        row;
+            -ms-flex-wrap:         wrap;
+            flex-wrap:             wrap;
+            flex:                  0 0 auto;
+        }
+    }
+
+    &-m {
+        @extend .#{$rowSelector};
+        @include mediaQuery(m) {
+            display:               -webkit-box;
+            display:               -ms-flexbox;
+            display:               flex;
+            -webkit-box-orient:    horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction:    row;
+            flex-direction:        row;
+            -ms-flex-wrap:         wrap;
+            flex-wrap:             wrap;
+            flex:                  0 0 auto;
+        }
+    }
+
+    &-l {
+        @extend .#{$rowSelector};
+        @include mediaQuery(l) {
+            display:               -webkit-box;
+            display:               -ms-flexbox;
+            display:               flex;
+            -webkit-box-orient:    horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction:    row;
+            flex-direction:        row;
+            -ms-flex-wrap:         wrap;
+            flex-wrap:             wrap;
+            flex:                  0 0 auto;
+        }
+    }
+}

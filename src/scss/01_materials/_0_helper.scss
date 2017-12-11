@@ -1,0 +1,99 @@
+%clearfix {
+    &:before, &:after {
+        content: " ";
+        display: block;
+        line-height: 0;
+        clear: both;
+    }
+}
+
+%clearfix-s {
+    @include mediaQuery(s) {
+        &:before, &:after {
+            content: " ";
+            display: block;
+            line-height: 0;
+            clear: both;
+        }
+    }
+}
+
+%clearfix-m {
+    @include mediaQuery(m) {
+        &:before, &:after {
+            content: " ";
+            display: block;
+            line-height: 0;
+            clear: both;
+        }
+    }
+}
+
+%clearfix-l {
+    @include mediaQuery(l) {
+        &:before, &:after {
+            content: " ";
+            display: block;
+            line-height: 0;
+            clear: both;
+        }
+    }
+}
+
+%clearfix-xl {
+    @include mediaQuery(xl) {
+        &:before, &:after {
+            content: " ";
+            display: block;
+            line-height: 0;
+            clear: both;
+        }
+    }
+}
+
+%resetClearfix {
+    &:before, &:after {
+        clear: none;
+    }
+}
+
+%resetClearfix-s {
+    @include mediaQuery(s) {
+        &:before, &:after {
+            clear: none;
+        }
+    }
+}
+
+%resetClearfix-m {
+    @include mediaQuery(m) {
+        &:before, &:after {
+            clear: none;
+        }
+    }
+}
+
+%resetClearfix-l {
+    @include mediaQuery(l) {
+        &:before, &:after {
+            clear: none;
+        }
+    }
+}
+
+%resetClearfix-xl {
+    @include mediaQuery(xl) {
+        &:before, &:after {
+            clear: none;
+        }
+    }
+}
+
+%removeLinkStyle {
+    text-decoration: none;
+    font-weight: $fontWeight-normal;
+
+    &:hover {
+        text-decoration: none;
+    }
+}

@@ -1,0 +1,21 @@
+$smallBorderRadius: 2px;
+$baseBorderRadius: 4px;
+$bigBorderRadius: 6px;
+
+$rotation-1: 12deg;
+$rotation-2: 24deg;
+$rotation-3: 48deg;
+$rotation-4: 114deg;
+
+// transition easing
+$quadEaseInout: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+$ease: ease;
+$easeInout: ease-in-out;
+
+// transition durations
+$duration-long: .5s;
+$duration-medium: .3s;
+$duration-short: .1s;
+
+$calloutHeight: 30px;
+$calloutHeight-m: 50px;

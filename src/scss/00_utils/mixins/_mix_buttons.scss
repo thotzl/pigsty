@@ -1,0 +1,28 @@
+@mixin p24-cta-colors($color: $blue, $colorHover: null) {
+
+    @if not($colorHover) {
+        $colorHover: lighten($color, 6.5%);
+    }
+
+    color:            $white;
+    background-color: $color;
+
+    &:hover {
+        background-color: $colorHover;
+    }
+}
+
+
+@mixin buttonSizing($px, $pxByHeight: false) {
+    @if ($pxByHeight) {
+        $px: ($px/8);
+    }
+
+    $bigPx: 4*$px;
+    $height: 8*$px;
+
+    @include border-radius($px $px $bigPx $px);
+    padding: 0 (2*$px) 0 $px;
+    line-height: $height;
+}
+

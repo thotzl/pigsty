@@ -1,0 +1,3 @@
+@function color-list ($list, $color) {
+    @return map-get($list, '"' + #{$color} + '"');
+}

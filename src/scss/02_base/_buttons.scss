@@ -1,0 +1,16 @@
+button, input[type=submit] {
+    font-weight: $fontWeight-normal;
+    appearance: none;
+    border: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: $buttonLineHeight;
+    line-height: $buttonLineHeight;
+    padding: 0 0.6em;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+
+    @extend %fontSize-1_25;
+}

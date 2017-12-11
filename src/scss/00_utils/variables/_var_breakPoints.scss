@@ -1,0 +1,37 @@
+/// Media query s - min-width
+/// @group media-queries
+/// @type Integer
+$s: 320 !default;
+
+/// Media query m - min-width
+/// @group media-queries
+/// @type Integer
+$m: 768 !default;
+
+/// Media query l - min-width
+/// @group media-queries
+/// @type Integer
+$l: 1440 !default;
+
+/// Map of breakpoints - only min-widths with query name as key
+/// @group media-queries
+/// @type Map
+$breakpoints: (
+    default: null,
+    s: $s,
+    m: $m,
+    l: $l
+) !default;
+
+/// Nested map of breakpoints - complete media queries with min-width and/or max-width
+/// First level has query name as key.
+/// @group media-queries
+/// @type Map
+$mediaQueries: (
+    default: (min-width: null, max-width: null),
+    s: (min-width: null, max-width: $m),
+    m: (min-width: $m, max-width: $l),
+    l: (min-width: $l, max-width: null)
+) !default;
+
+

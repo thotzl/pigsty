@@ -1,0 +1,104 @@
+/// Generates rules by map. Triggered by mqStyles or bpStyles
+/// @group media-queries
+/// @param {map} $rules map of style rules
+/// @param {list} $wantedRules list of wanted rules - if not given all will be generated.
+/// @param {boolean} $important [null] if it’s set an !important will be added for each rule
+@mixin mqRules($rules, $wantedRules, $important: null) {
+
+    $impTag: "";
+
+    @if ($important) {
+        $impTag: " !important";
+    }
+
+    @each $rule, $value in $rules {
+        @if $wantedRules {
+            @if index($wantedRules, $rule) {
+                #{$rule}: #{$value}#{$impTag};
+            }
+        } @else {
+            #{$rule}: #{$value}#{$impTag};
+        }
+    }
+}
+
+/// Generates media query containers around your content by calling @mixin includeMediaQuery.
+/// mqStyles is written to make it easier to write different styles for a page element in different mediaQueries.
+/// – almost the same as bpStyles but for @media min-width only.
+/// @example scss
+/// .class {
+///     width: 1000px;
+///     margin: 0 15px;
+///
+///     @include mqStyles($map: (
+///         s: (
+///             width: 100%,
+///             margin: 10px 0,
+///         ),
+///         xl: (
+///             width: 1200px,
+///         )
+///     ));
+/// }
+/// @group media-queries
+/// @param {map} $map [null] map of styles per media query
+/// @param {list} $wantedMq [null] wanted media queries.
+/// If null all defined media queries will be rendered.
+/// Needed in case of predefined map you use on different elements but you don’t need all media queries on every element.
+/// @param {list} $wantedRules [null] wanted media queries – same as $wantedMq but for the rules
+/// @param {boolean} $important [null] if it’s set an !important will be added for each rule
+@mixin mqStyles($map, $wantedMq: null, $wantedRules: null, $important: null) {
+    @each $mq, $rules in $map {
+        @if $wantedMq {
+            @if index($wantedMq, $mq) {
+                @include mediaQuery($mq) {
+                    @include mqRules($rules, $wantedRules, $important);
+                }
+            }
+        } @else {
+            @include mediaQuery($mq) {
+                @include mqRules($rules, $wantedRules, $important);
+            }
+        }
+    }
+}
+
+/// Generates media query containers around your content by calling @mixin breakPoint.
+/// bpStyles is written to make it easier to write different styles for a page element in different breakPoints.
+/// – almost the same as mqStyles but for @media min-width AND max-width.
+/// @example scss
+/// .class {
+///     width: 1000px;
+///     margin: 0 15px;
+///
+///     @include bpStyles($map: (
+///         m: (
+///             width: 1200px,
+///         )
+///     ));
+/// }
+/// @group media-queries
+/// @param {map} $map [null] map of styles per media query
+/// @param {list} $wantedBp [null] wanted break points.
+/// If null all defined break points will be rendered.
+/// Needed in case of predefined map you use on different elements but you don’t need all media queries on every element.
+/// @param {list} $wantedRules [null] wanted media queries – same as $wantedBp but for the rules
+/// @param {boolean} $important [null] if it’s set an !important will be added for each rule
+@mixin bpStyles($map, $wantedBp: null, $wantedRules: null, $important: null) {
+    @each $bp, $rules in $map {
+
+        @if $wantedBp {
+            @if index($wantedBp, $bp) {
+                @include breakPoint($bp, null) {
+                    @include mqRules($rules, $wantedRules, $important);
+                }
+            }
+        } @else {
+            @include breakPoint($bp, null) {
+                @include mqRules($rules, $wantedRules, $important);
+            }
+        }
+
+    }
+}
+

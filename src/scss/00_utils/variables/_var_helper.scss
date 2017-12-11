@@ -1,0 +1,7 @@
+/// Φ Golden ratio (for scaling up) - If you don’t have layouts. Ratios with this multiplier it will look good (or not totally bad)
+/// @group helpers
+$phi: 1.61803;
+
+/// Φ Golden ratio (for scaling down) - If you don’t have layouts. Ratios with this multiplier it will look good (or not totally bad)
+/// @group helpers
+$phiDown: 1 / 1.61803;

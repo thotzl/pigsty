@@ -1,0 +1,148 @@
+// GRID
+$columns: 12 !default;
+$gutterWidth: 10px !default;
+$gutterWidth-s: 10px !default;
+$gutterWidth-m: 15px !default;
+$gutterWidth-l: 20px !default;
+$gutterWidth-xl: 20px !default;
+$columnSelector: span !default;
+$rowSelector: row !default;
+$containerSelector: content-wrapper !default;
+
+$gutterWidths: (
+    default: $gutterWidth,
+    s: $gutterWidth-s,
+    m: $gutterWidth-m,
+    l: $gutterWidth-l,
+    xl: $gutterWidth-xl
+);
+
+$gridConfig: (
+    default:
+    (
+        gutter: $gutterWidth,
+    ),
+    s:
+    (
+        gutter: $gutterWidth-s,
+    ),
+    m:
+    (
+        gutter: $gutterWidth-m,
+    ),
+    l:
+    (
+        gutter: $gutterWidth-l,
+    ),
+    xl:
+    (
+        gutter: $gutterWidth-xl,
+    )
+);
+
+$gridColMargin: (
+    default: (
+        margin-left: ($gutterWidth / 2),
+        margin-right: ($gutterWidth / 2)
+    ),
+    s:
+    (
+        margin-left: ($gutterWidth-s / 2),
+        margin-right: ($gutterWidth-s / 2)
+    ),
+    m:
+
+    (
+        margin-left: ($gutterWidth-m / 2),
+        margin-right: ($gutterWidth-m / 2)
+    ),
+    l:
+    (
+        margin-left: ($gutterWidth-l / 2),
+        margin-right: ($gutterWidth-l / 2)
+    ),
+    xl:
+    (
+        margin-left: ($gutterWidth-xl / 2),
+        margin-right: ($gutterWidth-xl / 2)
+    )
+);
+
+$gridRowMargin: (
+    default: (
+        margin-left: -($gutterWidth / 2),
+        margin-right: -($gutterWidth / 2),
+        // need this double minus operator for broken yui compressor
+        //@todo -> replace it with "+" when yui is fixed fixed
+        //@todo -> or better use compass with minified config on server and remove css from yui
+        width: calc(100% - -#{$gutterWidth})
+    ),
+    s:
+    (
+        margin-left: -($gutterWidth-s / 2),
+        margin-right: -($gutterWidth-s / 2),
+        // need this double minus operator for broken yui compressor
+        //@todo -> replace it with "+" when yui is fixed fixed
+        //@todo -> or better use compass with minified config on server and remove css from yui
+        width: calc(100% - -#{$gutterWidth-s})
+    ),
+    m:
+    (
+        margin-left: -($gutterWidth-m / 2),
+        margin-right: -($gutterWidth-m / 2),
+        // need this double minus operator for broken yui compressor
+        //@todo -> replace it with "+" when yui is fixed fixed
+        //@todo -> or better use compass with minified config on server and remove css from yui
+        width: calc(100% - -#{$gutterWidth-m})
+    ),
+    l:
+    (
+        margin-left: -($gutterWidth-l / 2),
+        margin-right: -($gutterWidth-l / 2),
+        // need this double minus operator for broken yui compressor
+        //@todo -> replace it with "+" when yui is fixed fixed
+        //@todo -> or better use compass with minified config on server and remove css from yui
+        width: calc(100% - -#{$gutterWidth-l})
+    ),
+    xl:
+    (
+        margin-left: -($gutterWidth-xl / 2),
+        margin-right: -($gutterWidth-xl / 2),
+        // need this double minus operator for broken yui compressor
+        //@todo -> replace it with "+" when yui is fixed fixed
+        //@todo -> or better use compass with minified config on server and remove css from yui
+        width: calc(100% - -#{$gutterWidth-xl})
+    )
+);
+
+$containerPadding-s: 0px;
+$containerPadding-m: 12px;
+$containerPadding-l: 40px;
+$containerPadding-xl: 45px;
+
+$containerWidths: (
+    default: (
+        box-sizing: border-box
+    ),
+    s: (
+        padding-left: $containerPadding-s,
+        padding-right: $containerPadding-s,
+        width: 100%
+    ),
+    m: (
+        padding-left: $containerPadding-m,
+        padding-right: $containerPadding-m,
+        width: 1024px
+    ),
+    l: (
+        padding-left: $containerPadding-l,
+        padding-right: $containerPadding-l,
+        width: 1280px
+    ),
+    xl: (
+        padding-left: $containerPadding-l,
+        padding-right: $containerPadding-l,
+        width: 1400px
+    )
+);
+

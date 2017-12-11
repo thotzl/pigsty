@@ -1,0 +1,130 @@
+:root,
+html,
+body {
+    @extend %resetBase;
+    @extend %rootFont;
+}
+
+html {
+    height: auto;
+    overflow: scroll;
+}
+
+body {
+    //perspective: 1px;
+    //transform-style: preserve-3d;
+    height: auto;
+    overflow: scroll;
+    //overflow-y: auto;
+}
+
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+canvas,
+caption,
+center,
+cite,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+i,
+iframe,
+img,
+ins,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+q
+ruby,
+s,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+    @extend %resetBase;
+}
+
+input[type="search"] {
+    appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-decoration {
+    appearance: none;
+}
+
+code, pre, samp, kbd {
+    @extend %resetBase;
+    @extend %monoFont;
+}
+
+dfn {
+    @extend %resetBase;
+    @extend %serifFont;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}

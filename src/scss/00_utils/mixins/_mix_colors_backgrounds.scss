@@ -1,0 +1,57 @@
+/// Generates selectors and rules with color values
+/// @group colors
+/// @param {map} $colors Keys will be used for selector names, values can be nested lists
+/// @param {string} $rule [background] Which rule should get the value (background, color, border-color, …)
+/// @param {string} $selectorType ["."] Which selector type should be generated? You can use "." or "#" but "&." or "&#" too. BEM-selectors like "&-" work too.
+/// @param {boolean} $isOverwrite [false] If it’s set to true !important will be added
+/// @param {string} $suffix [""] A suffix will be added to the selector name.
+/// @output #{$selectorType}#{$selector}#{$suffix} {#{$rule}: #{$c}#{$important};}
+@mixin color-selectors($colors, $rule: background, $selectorType: ".", $isOverwrite: false, $suffix: "") {
+    @each $selector, $color in $colors {
+        $i: 1;
+        $cleanSelector: #{$selector};
+        $important: "";
+
+        @if ($isOverwrite) {
+            $important: " !important";
+        }
+
+        @each $c in $color {
+
+            @if ($i > 1) {
+                $selector: #{$cleanSelector}-#{$i};
+            }
+
+            #{$selectorType}#{$selector}#{$suffix} {
+                #{$rule}: #{$c}#{$important};
+            }
+
+            $i: $i + 1;
+        }
+    }
+}
+
+/// Generates selectors with background-images.
+/// @group images
+/// @param {map} $backgrounds Keys will be used for selector names, values can be nested lists
+/// @param {string} $path ["../images/svg/backgrounds/dso_bg-"] Key will be added at the end
+/// @param {string} $selectorType ["."] Which selector type should be generated? You can use "." or "#" but "&." or "&#" too. BEM-selectors like "&-" work too.
+/// @param {boolean} $isOverwrite [false] If it’s set to true !important will be added
+/// @param {string} $suffix [""] A suffix will be added to the selector name.
+/// @param {string} $fileType ["svg"] file-type-suffix.
+/// @output #{$selectorType}#{$selector}#{$suffix} {background-image: url("#{$path}#{$selector}.#{$fileType}")#{$important};  }
+@mixin background-selectors($backgrounds, $path: "../images/svg/backgrounds/dso_bg-", $selectorType: ".", $isOverwrite: false, $suffix: "", $fileType: "svg") {
+    @each $selector, $background in $backgrounds {
+        $cleanSelector: #{$selector};
+        $important: "";
+
+        @if ($isOverwrite) {
+            $important: " !important";
+        }
+
+        #{$selectorType}#{$selector}#{$suffix} {
+            background-image: url("#{$path}#{$selector}.#{$fileType}")#{$important};
+        }
+    }
+}
+

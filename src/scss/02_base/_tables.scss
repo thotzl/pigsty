@@ -1,0 +1,31 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+thead {
+    border-bottom: 1px solid;
+}
+
+th {
+    @extend %tableCells;
+    font-weight: $fontWeight-bold;
+}
+
+tfoot {
+    border-top: 1px solid;
+}
+
+tbody {
+}
+
+tr {
+    &:nth-child(even) {
+        background: rgba($grey, 0.3);
+    }
+}
+
+td {
+    @extend %tableCells;
+}

@@ -1,0 +1,83 @@
+b {
+    font-weight: $fontWeight-bold;
+}
+
+i {
+    font-style: italic;
+}
+
+blockquote, q {
+    font-style: italic;
+    &:before {
+        content: "\201E";
+        vertical-align: 0;
+    }
+    &:after {
+        content: "\201C";
+        vertical-align: 0;
+    }
+    &:before, &:after {
+        font-weight: $fontWeight-bold;
+    }
+}
+
+blockquote {
+    color: $grey-light;
+}
+
+a {
+    color: $linkColor;
+    transition: color $duration-short $easeInout;
+
+    &:hover {
+        color: $linkColor-hover;
+    }
+}
+
+sub {
+    @extend %fontSize-0_75;
+    vertical-align: sub;
+}
+
+sup {
+    vertical-align: super;
+}
+
+small {
+    @extend %fontSize-0_75;
+}
+
+big {
+    @extend %fontSize-3_5;
+}
+
+mark {
+    background: $blue;
+    color: $white;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+var {
+    font-style: italic;
+    font-weight: 200;
+}
+
+cite {
+    font-style: italic;
+}
+
+kbd {
+    @extend %fontSize-0_75;
+}
+
+abbr {
+    border-bottom: 1px dotted $grey-dark;
+    cursor: help;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    font-size: 1rem;
+    font-weight: $fontWeight-normal;
+}
+

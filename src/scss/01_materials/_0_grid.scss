@@ -1,0 +1,89 @@
+%rowDefaults {
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+}
+
+%gridRow {
+    @extend %rowDefaults;
+    @extend %clearfix;
+    @include mqStyles($gridRowMargin);
+}
+
+%gridRow-s {
+    @extend %rowDefaults;
+    @extend %clearfix;
+    @include mqStyles($gridRowMargin, s, $important: true);
+}
+
+%gridRow-m {
+    @extend %rowDefaults;
+    @extend %clearfix;
+    @include mqStyles($gridRowMargin, m, $important: true);
+}
+
+%gridRow-l {
+    @extend %rowDefaults;
+    @extend %clearfix;
+    @include mqStyles($gridRowMargin, l, $important: true);
+}
+
+%gridRow-xl {
+    @extend %rowDefaults;
+    @extend %clearfix;
+    @include mqStyles($gridRowMargin, xl, $important: true);
+}
+
+%gridColBox {
+    box-sizing: border-box;
+    float: left;
+    position: relative;
+    @include mqStyles($gridColMargin);
+}
+
+%gridColMarginOnly {
+    @include mqStyles($gridColMargin);
+}
+
+%tableView {
+    width: calc(100% - #{$gutterWidth}) !important;
+    @include mqStyles($gridColMargin, $important: true);
+    @include mqStyles($map: (
+        s: (width: calc(100% - #{$gutterWidth-s}) !important),
+        l: (width: calc(100% - #{$gutterWidth-l}) !important),
+        m: (width: calc(100% - #{$gutterWidth-m}) !important),
+        xl: (width: calc(100% - #{$gutterWidth-xl}) !important),
+    ));
+}
+
+%tableView-s {
+    @include mediaQuery(s) {
+        width: calc(100% - #{$gutterWidth-s}) !important;
+        margin-left: $gutterWidth-s / 2 !important;
+        margin-right: $gutterWidth-s / 2 !important;
+    }
+}
+
+%tableView-m {
+    @include mediaQuery(m) {
+        width: calc(100% - #{$gutterWidth-m}) !important;
+        margin-left: $gutterWidth-m / 2 !important;
+        margin-right: $gutterWidth-m / 2 !important;
+    }
+}
+
+%tableView-l {
+    @include mediaQuery(l) {
+        width: calc(100% - #{$gutterWidth-l}) !important;
+        margin-left: $gutterWidth-l / 2 !important;
+        margin-right: $gutterWidth-l / 2 !important;
+    }
+}
+
+%tableView-xl {
+    @include mediaQuery(xl) {
+        width: calc(100% - #{$gutterWidth-xl}) !important;
+        margin-left: $gutterWidth-xl / 2 !important;
+        margin-right: $gutterWidth-xl / 2 !important;
+    }
+}

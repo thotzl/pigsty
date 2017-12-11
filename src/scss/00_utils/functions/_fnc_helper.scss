@@ -1,0 +1,22 @@
+@function stripUnit($val) {
+    @return $val / ($val * 0 + 1);
+}
+
+@function pxToRem($px, $bp: default) {
+
+    $root: map_get(map_get($rootFontSizes, $bp), font-size);
+
+    $ret: stripUnit($px);
+    $base: stripUnit($root);
+    @return $ret / $base + rem;
+}
+
+@function pxToEm($px, $bp: default) {
+
+    $root: map_get(map_get($rootFontSizes, $bp), font-size);
+
+    $ret: stripUnit($px);
+    $base: stripUnit($root);
+    @return $ret / $base + em;
+}
+

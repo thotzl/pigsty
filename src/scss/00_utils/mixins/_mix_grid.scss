@@ -1,0 +1,103 @@
+/// Generates column widths.
+/// All params are given/generated/evaluated by @mixin grid()
+/// @see {mixin} grid
+/// @group grid
+/// @param {string} $col Class name
+/// @param {string} $width Column width in %
+/// @param {string} $gutterWidth Gutter width in px
+/// @param {string} $suffix [null] Key of breakpoint in media query map
+@mixin grid-col($col, $width, $gutterWidth, $suffix: null) {
+
+    .#{$col} {
+        width: calc(#{$width}#{"%"} - #{$gutterWidth});
+    }
+
+    @if $suffix {
+        .#{$col}-#{$suffix} {
+            width: calc(#{$width}#{"%"} - #{$gutterWidth}) !important;
+        }
+    }
+}
+
+/// Generates Grid defaults for rows and columns like border-box, clearfix and row-margins.
+/// All params are given/generated/evaluated by @mixin grid()
+/// @see {mixin} grid
+/// @group grid
+/// @param {integer} $columns Number of columns
+/// @param {string} $g gutter width in px
+/// @param {string} $suffix [null] Key of breakpoint in media query map
+@mixin grid-defaults($columns, $g, $suffix: null) {
+    $extendGridRow: "%gridRow";
+    $extendColBox: "%gridColBox";
+    $modifier: '';
+
+    @if ($suffix) {
+        @if ($suffix != 'default') {
+            $modifier: -#{$suffix};
+        }
+    }
+
+    .#{$rowSelector} {
+        @extend #{$extendGridRow};
+    }
+
+    @for $i from 1 through $columns {
+        $col: #{$columnSelector}#{$i}#{$modifier};
+
+        .#{$col} {
+            @extend #{$extendColBox};
+        }
+    }
+}
+
+/// Wrapper for all grid mixins
+/// @group grid
+/// @param {integer} $columns [12] Number of columns
+/// @param {map} $mqs [$mediaQueries]
+/// Keys will be used as suffix for mq specific columns/rows.
+/// Values will be used for @media selectors.
+/// Key "default" will be ignored.
+@mixin grid($columns: 12, $mqs: $mediaQueries, $ignoreDefaults: true) {
+    @each $key, $map in $mqs {
+        $g: map_get($gutterWidths, $key);
+        $render: false;
+
+        @if ($g) {
+            @if $key != default {
+
+                @include mediaQuery ($key) {
+
+                    @for $i from 1 through $columns {
+                        $width: 100 / $columns * $i;
+                        $col: #{$columnSelector}#{$i};
+
+                        @include grid-col($col, $width, $g, $key);
+                    }
+                }
+
+                @include grid-defaults($columns, $g, $key);
+
+            } @else {
+                @if (not $ignoreDefaults) {
+                    @for $i from 1 through $columns {
+                        $width: 100 / $columns * $i;
+                        $col: #{$columnSelector}#{$i};
+
+                        @include grid-col($col, $width, $g);
+                    }
+                }
+                @include grid-defaults($columns, $g, $key);
+            }
+        } @else {
+            $flag: 'grid config for breakpoint "#{$key}" doesn’t exist';
+            /************** #{$flag} **************
+            * if you want to generate grid for the breakpoint "#{$key}",
+            * please fill up the following files (or corresponding) with an config for this breakpoint:
+            * - 00_utils/variables/_var_grid.scss
+            * - 01_materials/_grid.scss
+            */
+        }
+    }
+}
+
+
