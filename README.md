@@ -1,2 +1,2 @@
-# dgls-fruits
+# readme (follows)
 …
